@@ -1,0 +1,20 @@
+
+create database db_administracion 
+
+create table usuarios (
+    cod_usuario varchar (7) not null,
+    pass varchar (7) not null,
+    tipo_usuario varchar (7)not null,
+   PRIMARY KEY (cod_usuario)
+);
+
+
+create table solicitud (
+    cod_usuario varchar (7) not null,
+    tipo_peticion varchar (20),
+    asunto varchar (60) not null,
+    estado varchar (20) not null,
+    fecha_creacion TIMESTAMP,
+    fecha_limite DATETIME,
+    FOREIGN KEY (cod_usuario) references usuarios (cod_usuario)
+    );
